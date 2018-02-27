@@ -1,0 +1,154 @@
+FORMAT: 1A
+HOST: http://api.simpletickets.local
+
+# Simple Tickets
+
+Documentação para executar ações na API do Simple Tickets
+
+# Group Simple Tickets - API
+
+## Sobre [/]
+
+Descrever detalhes que são comuns a todos os serviços como fomatos, header, tipos de erros, etc
+
+# Group Ticket
+
+Rota responsável por manipular os tickets
+
+## Tickets [/tickets]
+
+### Criar ticket [POST]
+
++ Request Criar um ticket
+    
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+            
+    + Attributes (Ticket)
+
++ Response 201 (application/json)
+    + Attributes (Created)
+
+### Listar tickets [GET]
+
++ Response 200 (apllication/json)    
+    + Attributes (array[Ticket])
+
++ Response 400 (application/json)
+    + Attributes (Error)
+
+## Tickets [/tickets/{id}]
+
++ Parameters
+    + id: 1 (number, required) - Indentificador do ticket
+
+### Visualizar ticket [GET]
+    
++ Response 200 (apllication/json)    
+    + Attributes (Ticket)
+
++ Response 404 (application/json)
+    + Attributes (Error)
+
+### Atualizar ticket [PUT]
+
++ Request Atualizar um ticket
+    
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+            
+    + Attributes (Ticket)
+
++ Response 201 (application/json)
+    + Attributes (Created)
+
+### Excluir ticket [DELETE]
+
++ Response 204 (apllication/json)    
+
++ Response 404 (application/json)
+    + Attributes (Error)
+
+
+
+# Group Ticket Comments
+
+Rota responsável por manipular os comentários  do tickets
+
+## Ticket Comment [/tickets/{ticket_id}/comments]
+
++ Parameters
+    + ticket_id: 1 (number, required) - Indentificador do ticket
+
+
+### Criar comentário [POST]
+
++ Request Criar um comentário para ticket
+    
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+            
+    + Attributes (TicketComment)
+
++ Response 201 (application/json)
+    + Attributes (Created)
+
+### Listar comentários [GET]
+
++ Response 200 (apllication/json)    
+    + Attributes (array[TicketComment])
+
++ Response 400 (application/json)
+    + Attributes (Error)
+
+
+## Ticket Comment [/tickets/{ticket_id}/comments/{id}]
+
++ Parameters
+    + ticket_id: 1 (number, required) - Indentificador do ticket
+    + id: : 1 (number, required) - Indentificador do comentário
+
+### Visualizar comentário [GET]
+    
++ Response 200 (apllication/json)    
+    + Attributes (TicketComment)
+
++ Response 404 (application/json)
+    + Attributes (Error)
+
+
+# Data Structures
+
+## Ticket (object)
++ id (number) - Identificador do ticket
++ type: problem, incident (string) - Tipos de ticket
++ subject: Não consigo abrir meu navegador (string) - Assunto do ticket
++ description: Não estou conseguindo abrir meu navegador, me ajude (string) - Descrição do ticket
++ priority: urgent, high, normal, low (string) - Prioridade do ticket
++ status:  new, open, pending, hold, solved, closed (string) - Status do ticket
++ requester_id (number) - Identificador do usuário solicitante
++ assignee_id (number) - Responsável pelo ticket
++ created_at: 2009-07-20T22:55:29Z (string) - Data de criação do ticket
++ updated_at (string) - Data da ultima atualização
++ comments (array[TicketComment])
+
+## TicketComment (object)
++ id (number) - Identificador do comentário
++ body: Meu navegador continua com problema (string) - Corpo do comentário
++ author_id (number) - Identificador do autor do comentário
++ created_at: 2009-07-20T22:55:29Z (string) - Data de criação do comentário
+
+
+## Created (object)
++ id (number) - Identificador do objeto criado
+
+## Error (object)
++ code: 400 (number) - Código do erro
++ message (string) - Mensagem de erro
++ description (string) - Descrição do erro

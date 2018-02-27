@@ -1,0 +1,19 @@
+{
+  "name": "ocomon.docs.api",
+  "version": "1.0.0",
+  "description": "Documentação da API do Ocomon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "aglio": "./node_modules/.bin/aglio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://ombrodrigo@bitbucket.com/ombrodrigo/ocomon-modernizacao.git"
+  },
+  "author": "Rodrigo Conceição de Araujo <omb.rodrigo@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "aglio": "^2.3.0"
+  }
+}
