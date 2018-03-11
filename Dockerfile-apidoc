@@ -1,0 +1,9 @@
+FROM node:9.8.0-alpine
+
+ENV AGLIO_VERSION=2.3.0
+
+WORKDIR /api/
+
+RUN npm install aglio@$AGLIO_VERSION --silent --progress=false
+
+ENTRYPOINT ["./node_modules/.bin/aglio"]
