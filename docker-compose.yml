@@ -1,0 +1,10 @@
+version: "3"
+services:
+    apidoc:
+        build:
+            context: .
+            dockerfile: Dockerfile-apidoc
+        volumes:
+            - ./docs/api/api.apib:/api/api.apib
+            - ./docs/api/index.html:/api/index.html
+        command: "-i api.apib --theme-full-width --no-theme-condense -o index.html"
