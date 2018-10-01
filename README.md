@@ -8,12 +8,12 @@ Uma simples aplicação para geração de tickets
 #### Criar ticket [POST]
 
 + Request Criar um ticket
-  
+
     + Headers
 
             Accept: application/json
             Content-Type: application/json
-        
+
     + Attributes (Ticket)
 
 + Response 201 (application/json)
@@ -27,6 +27,8 @@ Uma simples aplicação para geração de tickets
 
 + Response 400 (application/json)
     + Attributes (Error)
+
+
 
 ### Tickets [/tickets/{id}]
 
@@ -44,17 +46,18 @@ Uma simples aplicação para geração de tickets
 #### Atualizar ticket [PUT]
 
 + Request Atualizar um ticket
-  
+
     + Headers
 
             Accept: application/json
             Content-Type: application/json
-        
+
     + Attributes (Ticket)
 
 + Response 201 (application/json)
 
     + Attributes (Created)
+
 
 #### Excluir ticket [DELETE]
 
@@ -74,12 +77,12 @@ Uma simples aplicação para geração de tickets
 #### Criar comentário [POST]
 
 + Request Criar um comentário para ticket
-  
+
     + Headers
 
             Accept: application/json
             Content-Type: application/json
-        
+
     + Attributes (TicketComment)
 
 + Response 201 (application/json)
@@ -95,6 +98,7 @@ Uma simples aplicação para geração de tickets
     + Attributes (Error)
 
 
+
 ### Ticket Comment [/tickets/{ticket_id}/comments/{id}]
 
 + Parameters
@@ -108,3 +112,4 @@ Uma simples aplicação para geração de tickets
 
 + Response 404 (application/json)
     + Attributes (Error)
+
